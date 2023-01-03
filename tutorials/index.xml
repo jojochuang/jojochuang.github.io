@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Apache Ozone</title>
+    <link>/tutorials/</link>
+    <description>Recent content in Tutorials on Apache Ozone</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2022 Apache Software Foundation</copyright><atom:link href="/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ozone get started</title>
+      <link>/tutorials/getstarted/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorials/getstarted/</guid>
+      <description>Requirements Working docker setup AWS CLI (optional) Ozone in a Single Container The easiest way to start up an all-in-one ozone container is to use the latest docker image from docker hub:
+docker run -p 9878:9878 -p 9876:9876 apache/ozone This command will pull down the ozone image from docker hub and start all ozone services in a single container. This container will run the required metadata servers (Ozone Manager, Storage Container Manager) one data node and the S3 compatible REST server (S3 Gateway).</description>
+    </item>
+    
+    <item>
+      <title>Ozone on Kubernetes</title>
+      <link>/tutorials/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorials/kubernetes/</guid>
+      <description>Requirements Working kubernetes cluster (LoadBalancer, PersistentVolume are not required) kubectl As the apache/ozone docker images are available from the dockerhub the deployment process is very similar to Minikube deployment. The only big difference is that we have dedicated set of k8s files for hosted clusters (for example we can use one datanode per host) Deploy to kubernetes
+kubernetes/examples folder of the ozone distribution contains kubernetes deployment resource files for multiple use cases.</description>
+    </item>
+    
+  </channel>
+</rss>
