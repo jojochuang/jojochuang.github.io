@@ -30,6 +30,17 @@ kubernetes/examples folder of the ozone distribution contains kubernetes deploym
     
     <item>
       <title>Release 1.3.0 available</title>
+      <link>/news/1.3.0/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/news/1.3.0/</guid>
+      <description>Apache Ozone 1.3.0 is released with following features:
+Erasure Coding - V1 support (Online reconstruction support) Container balancer Limit number of rocksdb instances to 1 per disk on high-density datanodes Ozone S3 Multi-tenancy Support S3 Grpc improvements for metadata path Filesystem Optimized and Object Store bucket layout types This is a generally available (GA) release. It represents a point of API stability and quality that we consider production-ready.
+Image credit: Grand Canyon - South Rim - Mather Point by G.</description>
+    </item>
+    
+    <item>
+      <title>Release 1.3.0 available</title>
       <link>/release/1.3.0/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
       
