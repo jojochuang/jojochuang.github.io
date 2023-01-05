@@ -1,1 +1,7 @@
 .pdf filter=lfs diff=lfs merge=lfs -text
+04_Chuang_Performance_of_Apache.pdf filter=lfs diff=lfs merge=lfs -text
+Apache[[:space:]]Ozone[[:space:]]Erasure[[:space:]]Coding(EC).pdf filter=lfs diff=lfs merge=lfs -text
+Apache[[:space:]]Ozone[[:space:]]的最近进展和实践分享[[:space:]]v5.pdf filter=lfs diff=lfs merge=lfs -text
+ApacheConAsia2022_Yan_Sammi.pdf filter=lfs diff=lfs merge=lfs -text
+Ozone_meetup_Nov102022.pdf filter=lfs diff=lfs merge=lfs -text
+What'sNewInApacheOzone-v3.pdf filter=lfs diff=lfs merge=lfs -text
