@@ -3,7 +3,7 @@
 
 <html>
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
 
     <title>Apache Ozone</title>
 
-    <base href="/">
+    <base href="//localhost:1313/">
 
     <link rel="canonical" href="https://ozone.apache.org">
 
@@ -83,7 +83,7 @@ s=d.getElementsByTagName('script')[0];
                 <ul class="nav navbar-nav navbar-brand">
                     <li>
                         <img src="ozone-logo.png" alt="Ozone logo"/>
-                        <a href="/">Apache Ozone&trade;</a>
+                        <a href="//localhost:1313/">Apache Ozone&trade;</a>
                     </li>
                 </ul>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -169,7 +169,7 @@ using Hadoop Distributed Data Store.</p>
             <p><small>0001 Jan 1 </small></p>
 
             <h1 id="apache-ozone-changelog">Apache Ozone Changelog</h1>
-<h2 id="release-200---2025-03-26">Release 2.0.0 - 2025-03-26</h2>
+<h2 id="release-200---2025-03-27">Release 2.0.0 - 2025-03-27</h2>
 <h3 id="new-features">NEW FEATURES:</h3>
 <table>
   <thead>
@@ -7178,6 +7178,14 @@ using Hadoop Distributed Data Store.</p>
           <td style="text-align: left">Wei-Chiu Chuang</td>
           <td style="text-align: left">Wei-Chiu Chuang</td>
       </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-1186">HDDS-1186</a></td>
+          <td style="text-align: left">Ozone S3 gateway (phase III)</td>
+          <td style="text-align: left">Major</td>
+          <td style="text-align: left">S3</td>
+          <td style="text-align: left">Marton Elek</td>
+          <td style="text-align: left"></td>
+      </tr>
   </tbody>
 </table>
 
@@ -7198,6 +7206,11 @@ using Hadoop Distributed Data Store.</p>
 <li><a href="https://issues.apache.org/jira/browse/HDDS-11258">HDDS-11258</a> | <em>Blocker</em> | <strong>[hsync] Add new OM layout version</strong></li>
 </ul>
 <p>A new layout version, HBASE_SUPPORT (7) is added to Ozone Manager that provides the guardrail for the full support of hsync, lease recovery and listOpenFiles APIs for HBase.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11227">HDDS-11227</a> | <em>Major</em> | <strong>Use OM&rsquo;s KMS from client side when connecting to a cluster and dealing with encrypted data</strong></li>
+</ul>
+<p>Ozone clients can now interact with multiple encrypted Ozone clusters. This improvement enables distcp to copy from one encrypted source Ozone cluster to another encrypted destination Ozone cluster.</p>
 <hr>
 <ul>
 <li><a href="https://issues.apache.org/jira/browse/HDDS-11375">HDDS-11375</a> | <em>Major</em> | <strong>DN Startup fails with Illegal configuration</strong></li>
@@ -7229,6 +7242,11 @@ Client-side: Set ozone.client.hbase.enhancements.allowed to true.</p>
 <p>ozone sh snapshot delete &lt;vol&gt;/&lt;linked bucket name&gt; &lt;snapshot name&gt;</p>
 <hr>
 <ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11617">HDDS-11617</a> | <em>Blocker</em> | <strong>Update hadoop to 3.4.1</strong></li>
+</ul>
+<p>Ozone&rsquo;s Hadoop dependency version was updated from 3.3.6 to 3.4.1.</p>
+<hr>
+<ul>
 <li><a href="https://issues.apache.org/jira/browse/HDDS-8101">HDDS-8101</a> | <em>Major</em> | <strong>Add FSO repair tool to ozone CLI in read-only and repair modes</strong></li>
 </ul>
 <p>Added a new command &ldquo;ozone repair om fso-tree&rdquo; to detect and repair broken FSO trees caused by bugs such as HDDS-7592, which can orphan data in the OM.</p>
@@ -7236,10 +7254,25 @@ Client-side: Set ozone.client.hbase.enhancements.allowed to true.</p>
 ozone repair om fso-tree &ndash;db &lt;dbPath&gt; [&ndash;repair | &ndash;r] [&ndash;volume | -v &lt;volName&gt;] [&ndash;bucket | -b &lt;bucketName&gt;] [&ndash;verbose]</p>
 <hr>
 <ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-7852">HDDS-7852</a> | <em>Major</em> | <strong>SCM Decommissioning Support</strong></li>
+</ul>
+<p>A Storage Container Manager can now be decommissioned from a set of SCM nodes. Check out user doc for usage and more details: <a href="https://ozone.apache.org/docs/edge/feature/decommission.html">https://ozone.apache.org/docs/edge/feature/decommission.html</a></p>
+<hr>
+<ul>
 <li><a href="https://issues.apache.org/jira/browse/HDDS-11753">HDDS-11753</a> | <em>Blocker</em> | <strong>Deprecate file per chunk layout from datanode code</strong></li>
 </ul>
 <p>FILE_PER_CHUNK container layout (ozone.scm.container.layout) is deprecated. Starting from Apache Ozone 2.0, users will not be able to create new FILE_PER_CHUNK containers.</p>
 <p>The support will be removed in a future release.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-12488">HDDS-12488</a> | <em>Major</em> | <strong>S3G should handle the signature calculation with trailers</strong></li>
+</ul>
+<p>AWS Java SDK V2 2.30.0 introduced an incompatible protocol change that caused file upload to Ozone S3 Gateway to fail. S3G is now updated to support AWS Java SDK V2 2.30.0 and later.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-12327">HDDS-12327</a> | <em>Blocker</em> | <strong>Restore non-HA (to HA) upgrade test</strong></li>
+</ul>
+<p>Non-HA 1.4.1 cluster (in a non-rolling fashion) upgrade to 2.0.0 is tested.</p>
 <hr>
 <ul>
 <li><a href="https://issues.apache.org/jira/browse/HDDS-11754">HDDS-11754</a> | <em>Blocker</em> | <strong>Drop support for non-Ratis OM and SCM</strong></li>

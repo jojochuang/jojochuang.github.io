@@ -3,7 +3,7 @@
 
 <html>
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
 
     <title>Apache Ozone</title>
 
-    <base href="/">
+    <base href="//localhost:1313/">
 
     <link rel="canonical" href="https://ozone.apache.org">
 
@@ -83,7 +83,7 @@ s=d.getElementsByTagName('script')[0];
                 <ul class="nav navbar-nav navbar-brand">
                     <li>
                         <img src="ozone-logo.png" alt="Ozone logo"/>
-                        <a href="/">Apache Ozone&trade;</a>
+                        <a href="//localhost:1313/">Apache Ozone&trade;</a>
                     </li>
                 </ul>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -129,40 +129,39 @@ s=d.getElementsByTagName('script')[0];
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p><img src="releases/2.0.0.jpg" alt="Indiana-Dunes-haiku"></p>
-<p>Apache Ozone 2.0.0 is released with following features:</p>
+<p>Apache Ozone 2.0.0 adds 1700 new features, improvements and bug fixes on top of Ozone 1.4.
+It is released with the following features:</p>
 <ul>
-<li>HDDS-8829 Symmetric Keys for Delegation Tokens</li>
-<li>HDDS-7852 SCM Decommissioning Support</li>
 <li>HDDS-7593 Supporting HSync and lease recovery</li>
+<li>HDDS-7852 SCM Decommissioning Support</li>
+<li>HDDS-8829 Symmetric Keys for Delegation Tokens</li>
 <li>HDDS-10656 Atomic Key Overwrite and Key Replacement</li>
-<li>HDDS-8246 Java 11/17/21 Support and Testing</li>
 </ul>
 <p>Other noteworthy changes:</p>
 <ul>
-<li>AWS SDK v2 client support (Both v1 and v2 are supported now)</li>
-<li>JDK17 support HDDS-8247</li>
-<li>ARM64 support</li>
+<li>HDDS-6263 ARM64 support</li>
+<li>HDDS-8246 Java 11/17/21 Support and Testing</li>
+<li>HDDS-11577 AWS SDK v2 client support</li>
 </ul>
 <p>Observability:</p>
 <ul>
-<li>HDDS-11153 [UI] Recon UI Improvements</li>
 <li>HDDS-9307 Ozone performance and operational dashboards</li>
+<li>HDDS-11153 [UI] Recon UI Improvements</li>
 <li>HDDS-11825 Support interactive mode for ozone CLI</li>
 </ul>
 <p>Developer:</p>
 <ul>
+<li>HDDS-6729 JUnit 4 to 5 upgrade</li>
+<li>HDDS-8113 Dropped Hadoop 2.7 ~ 2.9 support.</li>
 <li>HDDS-10986 Publish SBOM artifacts</li>
-<li>Hadoop dependency was updated to 3.4.1</li>
-<li>Dropped Hadoop 2.7 ~ 2.9 support. Only 2.10.1 is supported</li>
-<li>JUnit 4 to 5 upgrade</li>
+<li>HDDS-11617 Hadoop dependency was updated to 3.4.1</li>
 </ul>
 <p>Incompatible change:</p>
 <ul>
-<li>HDDS-11759 Remove LegacyReplicationManager</li>
-<li>HDDS-11753 Deprecate file per chunk layout from datanode code</li>
 <li>HDDS-7307 Move S3 Gateway web admin to separate port</li>
+<li>HDDS-11753 Deprecate file per chunk layout from datanode code</li>
 <li>HDDS-11754 Drop support for non-Ratis OM and SCM</li>
-<li>Master nodes – OM and SCM are always in High Availability mode.</li>
+<li>HDDS-11759 Remove LegacyReplicationManager</li>
 </ul>
 <p>For more details, check out <a href="/release/2.0.0/changelog.2.0.0/">CHANGELOGS</a> and <a href="/release/2.0.0/releasenotes.2.0.0/">RELEASENOTES</a></p>
 <p>This is a generally available (GA) release.
