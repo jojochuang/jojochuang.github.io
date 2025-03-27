@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Object store for Hadoop">
+    <meta name="keywords" content="hadoop, ozone, hdds, objectstore, scale"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="language" content="en"/>
+
+    <title>Apache Ozone</title>
+
+    <base href="/">
+
+    <link rel="canonical" href="https://ozone.apache.org">
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <script>
+      var _paq = window._paq = window._paq || [];
+      
+
+       
+      _paq.push(['disableCookies']);
+      
+
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.apache.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '34']);
+        var d=document, g=d.createElement('script'),
+s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    
+
+</head>
+
+<body>
+
+
+<div class="topnav">
+    <div class="container">
+        <ul class="breadcrumb col-md-4">
+            <li>
+                <img class="asf-logo" src="asf_feather.png"/>
+                <a href="https://www.apache.org">Apache Software Foundation</a>
+            </li>
+        </ul>
+        <div class="col-md-8">
+            <ul class="pull-right breadcrumb">
+                <li><a href="https://www.apache.org/licenses/">License</a></li>
+                <li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                <li><a href="https://www.apache.org/events/current-event">Events</a></li>
+                <li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                <li><a href="https://www.apache.org/security/">Security</a></li>
+                <li><a href="https://privacy.apache.org/policies/privacy-policy-public.html">Privacy</a></li>
+        </ul>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav navbar-brand">
+                    <li>
+                        <img src="ozone-logo.png" alt="Ozone logo"/>
+                        <a href="/">Apache Ozone&trade;</a>
+                    </li>
+                </ul>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#ozone-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div id="ozone-menu" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="faq">FAQ</a></li>
+                    <li><a href="downloads">Download</a></li>
+                    <li><a href="docs">Documentation</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                            <li><a href="community">Get involved</a></li>
+                            <li><a href="events">Events</a></li>
+                         </ul>
+                    </li>
+                    <li><a href="https://github.com/apache/ozone">Source</a></li>
+                    <li><a href="https://cwiki.apache.org/confluence/display/OZONE">Wiki</a></li>
+                </ul>
+            </div>
+
+    </nav>
+
+    <div style="max-height: 200px; overflow: hidden;">
+      <img src="sunrise-ozone.jpg" style="width: 100%; left:0px;"/>
+    </div>
+
+</div>
+
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<h1></h1>
+<h1 id="apache-ozone--200-release-notes">Apache Ozone  2.0.0 Release Notes</h1>
+<p>These release notes cover new developer and user-facing incompatibilities, important issues, features, and major improvements.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-10295">HDDS-10295</a> | <em>Major</em> | <strong>Provide an &ldquo;ozone repair&rdquo; subcommand to update the snapshot info in transactionInfoTable</strong></li>
+</ul>
+<p>A new command &ldquo;ozone repair update-transaction&rdquo; is added to update the highest index in OM transactionInfoTable.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11258">HDDS-11258</a> | <em>Blocker</em> | <strong>[hsync] Add new OM layout version</strong></li>
+</ul>
+<p>A new layout version, HBASE_SUPPORT (7) is added to Ozone Manager that provides the guardrail for the full support of hsync, lease recovery and listOpenFiles APIs for HBase.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11375">HDDS-11375</a> | <em>Major</em> | <strong>DN Startup fails with Illegal configuration</strong></li>
+</ul>
+<p>Remove the predefined hdds.ratis.raft.grpc.message.size. Its default value is determined by hdds.container.ratis.log.appender.queue.byte-limit + 1MB = 33MB.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11342">HDDS-11342</a> | <em>Major</em> | <strong>[hsync] Add a config as HBase-related features master switch</strong></li>
+</ul>
+<p>It is now required to toggle an extra config switch to allow HBase-related enhancements to be enabled.</p>
+<p>Server-side (OM): Set ozone.hbase.enhancements.allowed to true.
+Client-side: Set ozone.client.hbase.enhancements.allowed to true.</p>
+<p>For more details, see their respective config description.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-7593">HDDS-7593</a> | <em>Major</em> | <strong>Supporting HSync and lease recovery</strong></li>
+</ul>
+<p>Ozone 2.0 added support for output stream hsync/hflush API support. In addition, lease recovery (recoverLease()), setSafeMode(), file system API support are added.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11329">HDDS-11329</a> | <em>Major</em> | <strong>Update Ozone images to Rocky Linux-based runner</strong></li>
+</ul>
+<p>Provide Rocky Linux-based convenience Ozone docker image</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11705">HDDS-11705</a> | <em>Critical</em> | <strong>Snapshot operations on linked buckets should work on actual underlying bucket</strong></li>
+</ul>
+<p>Ozone did not support snapshots on linked buckets before this release. However, a user could have inadvertently created snapshots on linked buckets. Hence when upgrading from an older version that doesn&rsquo;t support snapshots on linked buckets to a newer version that supports snapshots on linked buckets, it is essential to ensure that there are no snapshots on linked buckets otherwise they will linger around. If there are any snapshots on linked buckets, those snapshots need to be deleted by using snapshot delete command:</p>
+<p>ozone sh snapshot delete &lt;vol&gt;/&lt;linked bucket name&gt; &lt;snapshot name&gt;</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-8101">HDDS-8101</a> | <em>Major</em> | <strong>Add FSO repair tool to ozone CLI in read-only and repair modes</strong></li>
+</ul>
+<p>Added a new command &ldquo;ozone repair om fso-tree&rdquo; to detect and repair broken FSO trees caused by bugs such as HDDS-7592, which can orphan data in the OM.</p>
+<p>Usage:
+ozone repair om fso-tree &ndash;db &lt;dbPath&gt; [&ndash;repair | &ndash;r] [&ndash;volume | -v &lt;volName&gt;] [&ndash;bucket | -b &lt;bucketName&gt;] [&ndash;verbose]</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11753">HDDS-11753</a> | <em>Blocker</em> | <strong>Deprecate file per chunk layout from datanode code</strong></li>
+</ul>
+<p>FILE_PER_CHUNK container layout (ozone.scm.container.layout) is deprecated. Starting from Apache Ozone 2.0, users will not be able to create new FILE_PER_CHUNK containers.</p>
+<p>The support will be removed in a future release.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-11754">HDDS-11754</a> | <em>Blocker</em> | <strong>Drop support for non-Ratis OM and SCM</strong></li>
+</ul>
+<p>Ozone Manager and Storage Container Manager will always run in HA (Ratis) mode. Clusters upgrading from non-Ratis (Standalone) mode will automatically run in single node HA (Ratis) mode.</p>
+
+</div>
+<div class="col-md-4" style="padding: 20px;">
+    
+       <p>
+           <a href="https://www.apache.org/dyn/closer.cgi/ozone/RELEASENOTES.2.0.0/ozone-RELEASENOTES.2.0.0.tar.gz"
+              class="btn btn-success">Download tar.gz</a></p>
+       <p>
+           (<a href="https://downloads.apache.org/ozone/RELEASENOTES.2.0.0/ozone-RELEASENOTES.2.0.0.tar.gz.sha512">checksum</a>
+           <a href="https://downloads.apache.org/ozone/RELEASENOTES.2.0.0/ozone-RELEASENOTES.2.0.0.tar.gz.asc">signature</a>)
+       </p>
+       <p>
+           <a href="https://www.apache.org/dyn/closer.cgi/ozone/RELEASENOTES.2.0.0/ozone-RELEASENOTES.2.0.0-src.tar.gz"
+              class="btn btn-warning">Download src</a></p>
+       <p>
+           (<a href="https://downloads.apache.org/ozone/RELEASENOTES.2.0.0/ozone-RELEASENOTES.2.0.0-src.tar.gz.sha512">checksum</a>
+           <a href="https://downloads.apache.org/ozone/RELEASENOTES.2.0.0/ozone-RELEASENOTES.2.0.0-src.tar.gz.asc">signature</a>)
+       </p>
+        
+            <p><a href="https://ozone.apache.org/docs/RELEASENOTES.2.0.0" class="btn btn-primary">Documentation</a>
+       </p>
+        
+    
+    <p><small>0001 Jan 1 </small></p>
+
+</div>
+</div>
+</div>
+
+<footer>
+    <div class="container">
+
+        <div class="col-md-12 trademark">
+            <p>© 2025 The Apache Software Foundation <a href="http://apache.org">The Apache Software Foundation</a>,<br/>
+                Apache, Apache Hadoop, Apache Ozone, the Apache feather logo, are trademarks of The Apache Software Foundation.
+            <p>
+        </div>
+    </div>
+</footer>
+
+
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+
+
+</body>
+</html>
+
