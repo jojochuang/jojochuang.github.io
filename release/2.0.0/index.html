@@ -130,150 +130,70 @@ s=d.getElementsByTagName('script')[0];
 <!-- raw HTML omitted -->
 <p><img src="releases/2.0.0.jpg" alt="Indiana-Dunes-haiku"></p>
 <p>Apache Ozone 2.0.0 adds 1708 new features, improvements and bug fixes on top of Ozone 1.4.</p>
-<p><em>All notable changes to Apache Ozone are documented in this file. This project adheres to the <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a> format and <a href="https://semver.org/">Semantic Versioning</a>.</em></p>
-<h2 id="200--2025-04-04">[2.0.0] – 2025-04-04</h2>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,<br>
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<h2 id="200---2025-04-04">[2.0.0] - 2025-04-04</h2>
 <h3 id="added">Added</h3>
 <ul>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-7593">HDDS-7593</a>: HSync and Lease Recovery</strong><br>
-Added support for HDFS-compatible hsync/hflush on Ozone client output streams, including HDFS-style lease recovery. This enables durable writes (useful for workloads such as HBase and Solr).</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-7852">HDDS-7852</a>: SCM Decommissioning Support</strong><br>
-The Storage Container Manager (SCM) now supports decommissioning in HA mode, allowing administrators to gracefully remove an SCM node from the cluster.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-11306">HDDS-11306</a>: OM System Audit Log</strong><br>
-Ozone Manager now provides an additional system audit log capturing internal events (e.g. startup, leader changes) to assist with debugging and compliance.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10328">HDDS-10328</a>: Cross-Realm Kerberos Support</strong><br>
-Ozone now supports cross-realm Kerberos authentication out-of-the-box with a default principal pattern, easing inter-realm operations for users in multi-realm environments.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10984">HDDS-10984</a>: SCM Certificate Restore Tool</strong><br>
-Introduced a CLI tool to recover SCM security certificates from the RocksDB backend, aiding recovery in HA deployments.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10605">HDDS-10605</a>: Crypto Compliance Configurations</strong><br>
-Added configuration options to define allowed cryptographic algorithms via whitelists, making it easier to enforce compliance with FIPS or other approved standards.</p>
-</li>
+<li>Move S3 Gateway web admin to separate port (<a href="https://issues.apache.org/jira/browse/HDDS-7307">HDDS-7307</a>) - S3 Gateway endpoints for static content and admin purposes (/prom, /logs, etc.) are now served on a separate port (default: 19878). New configuration keys are under <code>ozone.s3g.webadmin</code>.</li>
+<li>Symmetric Keys for Delegation Tokens (<a href="https://issues.apache.org/jira/browse/HDDS-8829">HDDS-8829</a>) - Applied symmetric keys for delegation tokens.</li>
+<li>Add <code>CapacityPipelineChoosePolicy</code> considering datanode storage space (<a href="https://issues.apache.org/jira/browse/HDDS-9345">HDDS-9345</a>).</li>
+<li>Create APIs to fetch single datanode related information (<a href="https://issues.apache.org/jira/browse/HDDS-9648">HDDS-9648</a>).</li>
+<li>Extract k8s definitions for HttpFS and Recon from getting-started example (<a href="https://issues.apache.org/jira/browse/HDDS-11845">HDDS-11845</a>).</li>
 </ul>
 <h3 id="changed">Changed</h3>
 <ul>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10605">HDDS-10605</a>: Default Crypto Compliance Mode</strong><br>
-The default value for <code>ozone.security.crypto.compliance.mode</code> has been updated to enforce stricter cryptographic standards by default.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10328">HDDS-10328</a>: Kerberos Principal Pattern Update</strong><br>
-Updated the default Kerberos principal pattern for Ozone Manager to better support cross-realm authentication.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10770">HDDS-10770</a>: HSync File Overwrite</strong><br>
-Modified behavior so that files which have been hsync’d can now be overwritten, aligning Ozone’s semantics with those of HDFS.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10749">HDDS-10749</a>: DataNode Failure Handling</strong><br>
-If a DataNode’s internal Raft server fails, the DataNode will now shut down automatically to preserve cluster consistency.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10551">HDDS-10551</a>: Performance Improvements in Write Path</strong><br>
-Optimized the Hadoop FS interface for improved streaming performance, reduced client memory usage through fewer byte array copies, and enabled zero-copy transfers for data replication.</p>
-</li>
-</ul>
-<h3 id="deprecated">Deprecated</h3>
-<ul>
-<li><strong><a href="https://issues.apache.org/jira/browse/HDDS-10241">HDDS-10241</a>: File-Per-Chunk Container Layout</strong><br>
-The legacy <em>FILE_PER_CHUNK</em> container layout is now deprecated. New containers will not be created using this layout, and support will be removed in a future release. Users should migrate to the chunk-per-block layout.</li>
+<li>Enable container scanner by default (<a href="https://issues.apache.org/jira/browse/HDDS-10485">HDDS-10485</a>).</li>
+<li>Improve work with arrays (<a href="https://issues.apache.org/jira/browse/HDDS-11544">HDDS-11544</a>).</li>
+<li>Replace <code>ConcurrentHashMap</code> with <code>HashMap</code> protected by <code>ReadWriteLock</code> in <code>NodeStateMap</code> (<a href="https://issues.apache.org/jira/browse/HDDS-10830">HDDS-10830</a>).</li>
+<li>Replace <code>ConcurrentHashMap</code> with <code>HashMap</code> in <code>PipelineStateMap</code> (<a href="https://issues.apache.org/jira/browse/HDDS-10971">HDDS-10971</a>).</li>
+<li>Read chunk files using netty <code>ChunkedNioFile</code> (<a href="https://issues.apache.org/jira/browse/HDDS-7188">HDDS-7188</a>).</li>
+<li>Support passing Kerberos credentials in <code>GrpcOmTransport</code> (<a href="https://issues.apache.org/jira/browse/HDDS-11041">HDDS-11041</a>).</li>
+<li>Pipeline failure should trigger heartbeat immediately (<a href="https://issues.apache.org/jira/browse/HDDS-9823">HDDS-9823</a>).</li>
+<li>Recon datanode &lsquo;Last Heartbeat&rsquo; should print relative values (<a href="https://issues.apache.org/jira/browse/HDDS-9933">HDDS-9933</a>).</li>
+<li>Propagate group remove to other datanodes during pipeline close (<a href="https://issues.apache.org/jira/browse/HDDS-9959">HDDS-9959</a>).</li>
+<li>Improve the response for the Deleted Directories Insight Endpoint (<a href="https://issues.apache.org/jira/browse/HDDS-10241">HDDS-10241</a>).</li>
+<li>Recon - Improve performance of processing <code>IncrementalContainerReport</code> requests (<a href="https://issues.apache.org/jira/browse/HDDS-9883">HDDS-9883</a>).</li>
+<li>Revert workaround added by HDDS-8715 to preserve thread name (<a href="https://issues.apache.org/jira/browse/HDDS-12470">HDDS-12470</a>).</li>
+<li>Extract method for building <code>OMRequest</code> in <code>TrashOzoneFileSystem</code> (<a href="https://issues.apache.org/jira/browse/HDDS-6796">HDDS-6796</a>).</li>
+<li>Use md5 hash of multipart object part&rsquo;s content as ETag (<a href="https://issues.apache.org/jira/browse/HDDS-9680">HDDS-9680</a>).</li>
+<li>Checksum to support direct buffers (<a href="https://issues.apache.org/jira/browse/HDDS-10288">HDDS-10288</a>).</li>
+<li>Wrapper for set/get Standalone, Ratis and Rest Ports in <code>DatanodeDetails</code> (<a href="https://issues.apache.org/jira/browse/HDDS-117">HDDS-117</a>).</li>
+<li>Managed objects should not override <code>finalize()</code> (<a href="https://issues.apache.org/jira/browse/HDDS-9528">HDDS-9528</a>).</li>
+<li>[UI] Migrate Recon from <code>react-script</code> to <code>Vite</code> (<a href="https://issues.apache.org/jira/browse/HDDS-11017">HDDS-11017</a>).</li>
 </ul>
 <h3 id="removed">Removed</h3>
 <ul>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10397">HDDS-10397</a>: Removal of Non-HA OM/SCM Modes</strong><br>
-Standalone (non-Ratis) deployment modes for Ozone Manager and SCM have been removed. Clusters upgrading from non-HA setups will be converted to single-node Ratis quorums automatically.</p>
-</li>
-<li>
-<p><em>Various internal configurations and unused settings (e.g., some Netty-related SCM config keys) have been removed to simplify the overall configuration.</em></p>
-</li>
+<li>Remove <code>LegacyReplicationManager</code> (<a href="https://issues.apache.org/jira/browse/HDDS-11759">HDDS-11759</a>).</li>
+<li>[Recon] Fix Typescript configs for Ozone Recon (<a href="https://issues.apache.org/jira/browse/HDDS-11198">HDDS-11198</a>).</li>
 </ul>
 <h3 id="fixed">Fixed</h3>
 <ul>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-9984">HDDS-9984</a>: Encryption Regression</strong><br>
-Fixed a regression that broke Ozone encryption. Encrypted buckets and keys now function as expected, restoring data-at-rest encryption.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10404">HDDS-10404</a>: S3 Secret Generation Issue</strong><br>
-Resolved an issue causing an Internal Server Error during S3 secret generation via the HTTP API. The endpoint now returns proper success or error messages.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10404">HDDS-10404</a>: OM Crash on S3 Secret Handling</strong><br>
-Fixed a bug where the Ozone Manager would crash with an NPE during S3 secret processing, ensuring stability when managing S3 credentials.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10516">HDDS-10516</a>: S3 MPU ETag Compatibility</strong><br>
-Corrected the ETag calculation for multi-part uploads to better align with AWS S3 expectations, enhancing compatibility with S3 clients.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10516">HDDS-10516</a>: Orphaned Blocks on Overwrite</strong><br>
-Fixed an issue where overwriting an existing key could leave orphaned data blocks. The cleanup process has been improved to prevent storage leaks.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10551">HDDS-10551</a>: FSO ListKeys Accuracy</strong><br>
-Corrected the ListKeys API for FileSystem Optimized buckets to ensure complete and correct key listings when using key prefixes.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10770">HDDS-10770</a>: Dynamic Config in Secure Clusters</strong><br>
-Fixed the <code>ozone admin reconfig</code> command in Kerberized clusters so that configuration updates now succeed in secure deployments.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10770">HDDS-10770</a>: Block Allocation in Safe Mode</strong><br>
-Improved client behavior when SCM is in safe mode by ensuring block allocation retries instead of failing immediately.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10770">HDDS-10770</a>: SCM Recommission State Transition</strong><br>
-Fixed an InvalidStateTransitionException occurring after recommissioning an SCM in HA mode, resulting in smoother state transitions.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10984">HDDS-10984</a>: DataNode Out-of-Memory Prevention</strong><br>
-Resolved a memory issue on DataNodes related to excessive mmap allocations, improving overall stability under high load.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10551">HDDS-10551</a>: OM Memory Leak Fix</strong><br>
-Plugged a memory leak in the Ozone Manager related to per-client thread-local storage, preventing gradual memory growth.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10551">HDDS-10551</a>: DataNode Block Deletion Leak</strong><br>
-Fixed a resource leak in the DataNode delete blocks process that could cause memory buildup under heavy load.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10749">HDDS-10749</a>: Heartbeat Reporting</strong><br>
-Corrected an issue that could cause DataNodes to miss heartbeats, ensuring timely container reports and improved cluster reliability.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10749">HDDS-10749</a>: Replication Count Accuracy</strong><br>
-Fixed the miscounting of containers on decommissioned DataNodes to avoid false mis-replication alerts.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10749">HDDS-10749</a>: Log Spam on Pipeline Loss</strong><br>
-Fixed an infinite-loop bug in SCM that caused excessive logging when pipeline nodes were missing.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10770">HDDS-10770</a>: SetTimes on Linked Buckets</strong><br>
-Corrected the behavior of the <code>ozone fs -setTimes</code> command on linked buckets so that it now sets access/modification times correctly.</p>
-</li>
+<li><code>TriggerDBSyncEndpoint</code> admin only API handling in Recon (<a href="https://issues.apache.org/jira/browse/HDDS-11436">HDDS-11436</a>).</li>
+<li>Disable REST endpoint for S3 secret manipulation by username (<a href="https://issues.apache.org/jira/browse/HDDS-11040">HDDS-11040</a>).</li>
+<li>Improve log for container not found in <code>CloseContainerCommandHandler</code> (<a href="https://issues.apache.org/jira/browse/HDDS-9958">HDDS-9958</a>).</li>
+<li>Update Container for named <code>RwLock</code> operations (<a href="https://issues.apache.org/jira/browse/HDDS-10072">HDDS-10072</a>).</li>
+<li>Add Integration Tests for Failing Datanode Decommission and Maintenance Early (<a href="https://issues.apache.org/jira/browse/HDDS-10464">HDDS-10464</a>).</li>
+<li>Container Report admin command displays incorrect value after SCM restart (<a href="https://issues.apache.org/jira/browse/HDDS-10272">HDDS-10272</a>).</li>
+<li>Fix pagination on the OM DB Insights page in Recon (<a href="https://issues.apache.org/jira/browse/HDDS-10282">HDDS-10282</a>).</li>
+<li><code>IllegalArgumentException: containerSize Negative</code> (<a href="https://issues.apache.org/jira/browse/HDDS-10293">HDDS-10293</a>).</li>
 </ul>
 <h3 id="security">Security</h3>
 <ul>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10404">HDDS-10404</a>: CVE-2024-45106 – S3 Secret Vulnerability</strong><br>
-Fixed an authentication flaw in the S3 Gateway that could allow an authenticated Kerberos user to inadvertently trigger S3 secret regeneration. The endpoint is now disabled by default and secured properly.</p>
-</li>
-<li>
-<p><strong><a href="https://issues.apache.org/jira/browse/HDDS-10516">HDDS-10516</a>: Sticky-Bit Enforcement on Shared <code>/tmp</code></strong><br>
-Enforced proper sticky-bit handling on the shared <code>/tmp</code> bucket when Ranger authorization is enabled, preventing unauthorized file deletions in world-writable directories.</p>
-</li>
+<li>Disable REST endpoint for S3 secret manipulation by username (<a href="https://issues.apache.org/jira/browse/HDDS-11040">HDDS-11040</a>).</li>
+<li>Move S3 Gateway web admin to separate port (<a href="https://issues.apache.org/jira/browse/HDDS-7307">HDDS-7307</a>).</li>
+</ul>
+<h3 id="dependency-updates">Dependency Updates</h3>
+<ul>
+<li>Bump <code>vite</code> to 4.5.5 (<a href="https://issues.apache.org/jira/browse/HDDS-11467">HDDS-11467</a>).</li>
+<li>Upgrade <code>jgrapht</code> to 1.4.0 (<a href="https://issues.apache.org/jira/browse/HDDS-10503">HDDS-10503</a>).</li>
+<li>Bump <code>follow-redirects</code> to 1.15.6 (<a href="https://issues.apache.org/jira/browse/HDDS-10526">HDDS-10526</a>).</li>
+<li>Bump <code>axios</code> to 0.28.0 (<a href="https://issues.apache.org/jira/browse/HDDS-10669">HDDS-10669</a>).</li>
+<li>Bump <code>es5-ext</code> to 0.10.64 (<a href="https://issues.apache.org/jira/browse/HDDS-10673">HDDS-10673</a>).</li>
+<li>Bump <code>ip</code> to 1.1.9 (<a href="https://issues.apache.org/jira/browse/HDDS-10674">HDDS-10674</a>).</li>
+<li>Bump <code>browserify-sign</code> to 4.2.3 (<a href="https://issues.apache.org/jira/browse/HDDS-10676">HDDS-10676</a>).</li>
+<li>Bump <code>plotly.js</code> to 2.25.2 (<a href="https://issues.apache.org/jira/browse/HDDS-10677">HDDS-10677</a>).</li>
+<li>Bump <code>express</code> to 4.21.0 (<a href="https://issues.apache.org/jira/browse/HDDS-11460">HDDS-11460</a>).</li>
 </ul>
 <p>For more details, check out <a href="https://issues.apache.org/jira/projects/HDDS/versions/12353070">Apache Ozone 2.0.0 JIRA list</a></p>
 <p>This is a generally available (GA) release.
