@@ -199,7 +199,7 @@ ozone repair om fso-tree &ndash;db &lt;dbPath&gt; [&ndash;repair | &ndash;r] [&n
 <ul>
 <li><a href="https://issues.apache.org/jira/browse/HDDS-12488">HDDS-12488</a> | <em>Major</em> | <strong>S3G should handle the signature calculation with trailers</strong></li>
 </ul>
-<p>AWS Java SDK V2 2.30.0 introduced an incompatible protocol change that caused file upload to Ozone S3 Gateway to fail. S3G is now updated to support AWS Java SDK V2 2.30.0 and later.</p>
+<p>AWS Java SDK V2 2.30.0 introduced an incompatible protocol change that caused file upload to Ozone S3 Gateway to fail or append a trailer data silently. S3G is now updated to support AWS Java SDK V2 2.30.0 and later.</p>
 <hr>
 <ul>
 <li><a href="https://issues.apache.org/jira/browse/HDDS-12327">HDDS-12327</a> | <em>Blocker</em> | <strong>Restore non-HA (to HA) upgrade test</strong></li>
@@ -210,6 +210,25 @@ ozone repair om fso-tree &ndash;db &lt;dbPath&gt; [&ndash;repair | &ndash;r] [&n
 <li><a href="https://issues.apache.org/jira/browse/HDDS-11754">HDDS-11754</a> | <em>Blocker</em> | <strong>Drop support for non-Ratis OM and SCM</strong></li>
 </ul>
 <p>Ozone Manager and Storage Container Manager will always run in HA (Ratis) mode. Clusters upgrading from non-Ratis (Standalone) mode will automatically run in single node HA (Ratis) mode.</p>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-12750">HDDS-12750</a> | <em>Major</em> | <strong>Move StorageTypeProto from ScmServerDatanodeHeartbeatProtocol.proto to hdds.proto</strong></li>
+</ul>
+<p>Moved StorageTypeProto from OmClientProtocol.proto and ScmServerDatanodeHeartbeatProtocol.proto to hdds.proto.  As a result, the java_outer_classname changed from OzoneManagerProtocolProtos and StorageContainerDatanodeProtocolProtos to HddsProtos.</p>
+<p>This change is</p>
+<ul>
+<li>Proto wire/binary format: compatible (unchanged)</li>
+<li>Proto text format: compatible (unchanged)</li>
+<li>Java API: incompatible (changed java_outer_classname)</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://issues.apache.org/jira/browse/HDDS-9218">HDDS-9218</a> | <em>Major</em> | <strong>S3 secret managment through HTTP</strong></li>
+</ul>
+<p>A set of S3 REST API endpoints are available to manage S3 secrets:
+/secret for getting a secret.
+/revoke for revoking an existing secret.
+For more details, check out Securing S3 user document <a href="https://ozone.apache.org/docs/edge/security/securings3.html">https://ozone.apache.org/docs/edge/security/securings3.html</a></p>
 
 </div>
 <div class="col-md-4" style="padding: 20px;">

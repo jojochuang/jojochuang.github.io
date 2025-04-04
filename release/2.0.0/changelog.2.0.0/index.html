@@ -127,7 +127,7 @@ s=d.getElementsByTagName('script')[0];
 <div class="col-md-8">
 <h1></h1>
 <h1 id="apache-ozone-changelog">Apache Ozone Changelog</h1>
-<h2 id="release-200---2025-03-27">Release 2.0.0 - 2025-03-27</h2>
+<h2 id="release-200---2025-04-04">Release 2.0.0 - 2025-04-04</h2>
 <h3 id="new-features">NEW FEATURES:</h3>
 <table>
   <thead>
@@ -164,6 +164,14 @@ s=d.getElementsByTagName('script')[0];
           <td style="text-align: left">.</td>
           <td style="text-align: left">Szabolcs Gál</td>
           <td style="text-align: left">Szabolcs Gál</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-9218">HDDS-9218</a></td>
+          <td style="text-align: left">S3 secret managment through HTTP</td>
+          <td style="text-align: left">Major</td>
+          <td style="text-align: left">.</td>
+          <td style="text-align: left">Sammi Chen</td>
+          <td style="text-align: left">Ivan Zlenko</td>
       </tr>
   </tbody>
 </table>
@@ -1163,6 +1171,14 @@ s=d.getElementsByTagName('script')[0];
           <td style="text-align: left">.</td>
           <td style="text-align: left">Ethan Rose</td>
           <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12750">HDDS-12750</a></td>
+          <td style="text-align: left">Move StorageTypeProto from ScmServerDatanodeHeartbeatProtocol.proto to hdds.proto</td>
+          <td style="text-align: left">Major</td>
+          <td style="text-align: left">common</td>
+          <td style="text-align: left">Tsz-wo Sze</td>
+          <td style="text-align: left">Tsz-wo Sze</td>
       </tr>
   </tbody>
 </table>
@@ -3423,6 +3439,22 @@ s=d.getElementsByTagName('script')[0];
           <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12671">HDDS-12671</a></td>
           <td style="text-align: left">Include .editorconfig and .run in source tarball</td>
           <td style="text-align: left">Minor</td>
+          <td style="text-align: left">build</td>
+          <td style="text-align: left">Attila Doroszlai</td>
+          <td style="text-align: left">Attila Doroszlai</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12703">HDDS-12703</a></td>
+          <td style="text-align: left">ozone admin pipeline close &lt;id&gt; silently fails</td>
+          <td style="text-align: left">Minor</td>
+          <td style="text-align: left">SCM</td>
+          <td style="text-align: left">Venkat Sambath</td>
+          <td style="text-align: left">Venkat Sambath</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12751">HDDS-12751</a></td>
+          <td style="text-align: left">native build fails with CMake 4</td>
+          <td style="text-align: left">Blocker</td>
           <td style="text-align: left">build</td>
           <td style="text-align: left">Attila Doroszlai</td>
           <td style="text-align: left">Attila Doroszlai</td>
@@ -6841,6 +6873,22 @@ s=d.getElementsByTagName('script')[0];
           <td style="text-align: left">Attila Doroszlai</td>
           <td style="text-align: left">Chia-Chuan Yu</td>
       </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12724">HDDS-12724</a></td>
+          <td style="text-align: left">hdds-rocks-native build fails if JAVA_HOME not set</td>
+          <td style="text-align: left">Major</td>
+          <td style="text-align: left">build</td>
+          <td style="text-align: left">Attila Doroszlai</td>
+          <td style="text-align: left">Attila Doroszlai</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12720">HDDS-12720</a></td>
+          <td style="text-align: left">Use DatanodeID in SimpleMockNodeManager</td>
+          <td style="text-align: left">Minor</td>
+          <td style="text-align: left">test</td>
+          <td style="text-align: left">Tsz-wo Sze</td>
+          <td style="text-align: left">Peter Lee</td>
+      </tr>
   </tbody>
 </table>
 <h3 id="other">OTHER:</h3>
@@ -7143,6 +7191,22 @@ s=d.getElementsByTagName('script')[0];
           <td style="text-align: left">S3</td>
           <td style="text-align: left">Marton Elek</td>
           <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12733">HDDS-12733</a></td>
+          <td style="text-align: left">Bump axios to 0.30.0</td>
+          <td style="text-align: left">Major</td>
+          <td style="text-align: left">build, Ozone Recon</td>
+          <td style="text-align: left">Attila Doroszlai</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://issues.apache.org/jira/browse/HDDS-12736">HDDS-12736</a></td>
+          <td style="text-align: left">Bump hadoop-thirdparty to 1.4.0</td>
+          <td style="text-align: left">Major</td>
+          <td style="text-align: left">build</td>
+          <td style="text-align: left">Attila Doroszlai</td>
+          <td style="text-align: left">Attila Doroszlai</td>
       </tr>
   </tbody>
 </table>
