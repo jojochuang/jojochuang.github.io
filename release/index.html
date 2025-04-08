@@ -144,12 +144,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>New pipeline choosing policy: CapacityPipelineChoosePolicy. This policy randomly chooses pipelines with relatively lower utilization. To use, configure <code>hdds.scm.pipeline.choose.policy.impl</code> to <code>org.apache.hadoop.hdds.scm.pipeline.choose.algorithms.CapacityPipelineChoosePolicy</code>. (HDDS-9345)</li>
 <li>APIs to fetch single datanode specific information, reducing data transfer from server to client. (HDDS-9648)</li>
 <li>Support for symmetric keys for delegation tokens. (HDDS-8829)</li>
-<li>Hidden command (<code>ozone sh bucket set-encryption-key</code>) to reset bucket encryption key, addressing HDDS-7449. (HDDS-10142)</li>
 <li>A Storage Container Manager (SCM) can now be decommissioned from a set of SCM nodes. (HDDS-7852)</li>
 <li>Option to close all pipelines via CLI (<code>ozone admin pipeline close --all</code>). (HDDS-10742)</li>
-<li>Command-line tool (<code>ozone debug read-replicas</code>) to read data from all block replicas for a key to help triage data corruption. (HDDS-5739)</li>
 <li>Metrics to monitor bucket state including usage, quota, and available space. (HDDS-10476)</li>
-<li>Add option to close all pipelines via CLI using <code>--all</code> flag with optional filters. (HDDS-10742)</li>
 <li>Unit tests and documentation for creating keys/files with EC replication config using ofs/o3fs. (HDDS-10553)</li>
 <li>Support for passing Kerberos credentials in GrpcOmTransport. (HDDS-11041)</li>
 </ul>
@@ -271,7 +268,6 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="fixed">Fixed</h3>
 <ul>
 <li>TriggerDBSyncEndpoint admin-only API handling in Recon fixed. (HDDS-11436)</li>
-<li>Disabled REST endpoint for S3 secret manipulation by username for non-admin users. (HDDS-11040) -&gt; moved to Security</li>
 <li>Fixed potential <code>NullPointerException</code> in <code>OzoneManagerProtocolClientSideTranslatorPB.listStatusLight</code> when startKey is null (e.g., via s3a). (HDDS-10367)</li>
 <li>Addressed memory leak caused by ThreadLocal usage in <code>OMClientRequest</code> (OMLockDetails). (HDDS-10385)</li>
 <li>Fixed Container Balancer incorrectly selecting containers with 0 or negative size for moving. (HDDS-10483)</li>
@@ -403,6 +399,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p>For more details, check out <a href="https://issues.apache.org/jira/projects/HDDS/versions/12353070">Apache Ozone 2.0.0 JIRA list</a></p>
 <p>This is a generally available (GA) release.
 It represents a point of API stability and quality that we consider production-ready.</p>
+<p>Generated-by: Google AI Studio + Gemini 2.5 Pro Preview 03-25, with input data from a <a href="https://issues.apache.org/jira/issues/?filter=12353885">filtered JIRA list</a> using <a href="https://gist.github.com/jojochuang/f36bcdf135b2df26c2f0ab1b9e8c0c27">this prompt</a>.</p>
 <p>Image credit: <a href="https://commons.wikimedia.org/wiki/File:Indiana_Dunes_National_Lakeshore,_Michigan_City,_Indiana,_Estados_Unidos,_2012-10-20,_DD_03.jpg">Indiana Dunes National Lakeshore, Michigan City, Indiana, USA</a> by <a href="https://delso.photo/">Diego Delso</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> / Text added to original</p>
 
 
