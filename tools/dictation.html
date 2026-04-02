@@ -12,10 +12,10 @@
 <body>
   <div>載入中…</div>
   <script>
-    // 保留 querystring，轉到現有工具頁
+    // 保留 querystring，轉到同站工具頁
     (function () {
       var qs = window.location.search || "";
-      window.location.replace("https://jojochuang.github.io/dictation_exam/index.html" + qs);
+      window.location.replace("/tools/dictation_exam/index.html" + qs);
     })();
   </script>
 </body>
