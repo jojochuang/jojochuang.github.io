@@ -6,10 +6,55 @@
   <title>中文備課工具</title>
   <meta name="description" content="提供聽音辨字、聽寫語詞考試等中文教學用線上工具，支援試算表與 CSV，適合課堂與自學練習。" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jojochuang.github.io/LearnChinese/" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jojochuang.github.io/LearnChinese/sitemap.xml" />
+  <meta name="author" content="JOJOCHUANG（中文教學工具維護者）" />
+  <link rel="canonical" href="https://jojochuang.github.io/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jojochuang.github.io/sitemap.xml" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>字</text></svg>">
+  <!-- Google Analytics 4：在下方 learnChineseGA 變數填入 G-XXXXXXXX 後即會載入 gtag（留空則不載入、不發請求） -->
   <!-- 若使用 Google AdSense：請將官方提供的程式碼貼在這一行下方（</head> 之前） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://jojochuang.github.io/#website",
+        "name": "中文備課工具",
+        "alternateName": "LearnChinese",
+        "url": "https://jojochuang.github.io/",
+        "description": "聽音辨字遊戲與聽寫語詞考試之教學入口，支援 Google 試算表自訂教材。",
+        "inLanguage": "zh-TW",
+        "publisher": { "@id": "https://jojochuang.github.io/#org" }
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://jojochuang.github.io/#org",
+        "name": "中文備課工具",
+        "url": "https://jojochuang.github.io/",
+        "sameAs": ["https://github.com/jojochuang/LearnChinese"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://jojochuang.github.io/#author",
+        "name": "JOJOCHUANG",
+        "email": "reynard99999@gmail.com",
+        "url": "https://github.com/jojochuang",
+        "jobTitle": "中文教學工具維護者",
+        "sameAs": ["https://github.com/jojochuang"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://jojochuang.github.io/",
+        "url": "https://jojochuang.github.io/",
+        "name": "中文備課工具",
+        "isPartOf": { "@id": "https://jojochuang.github.io/#website" },
+        "inLanguage": "zh-TW",
+        "author": { "@id": "https://jojochuang.github.io/#author" },
+        "about": "以瀏覽器為主的華語聽力、聽寫練習資源與試算表範本導覽。"
+      }
+    ]
+  }
+  </script>
   <style>
     :root{
       --bg1:#0f172a; --bg2:#1f2937;
@@ -58,7 +103,6 @@
       border-radius:16px;
       box-shadow:0 18px 60px rgba(0,0,0,.22);
       padding:18px 16px;
-      backdrop-filter: blur(8px);
     }
     @media (min-width:880px){
       .card{grid-column:span 6;padding:20px 18px}
@@ -162,6 +206,41 @@
     .btnRow button.btn{
       cursor:pointer;font:inherit;font-size:inherit;text-decoration:none;
     }
+    .header-tools{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:100%}
+    .header-tools label{font-size:.85rem;color:rgba(255,255,255,.9)}
+    .header-tools input[type="search"]{
+      min-width:min(100%,220px);padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.35);
+      background:rgba(255,255,255,.12);color:#fff;font-size:.95rem;
+    }
+    .header-tools input[type="search"]::placeholder{color:rgba(255,255,255,.65)}
+    .header-tools button{
+      padding:8px 14px;border-radius:10px;border:none;background:rgba(255,255,255,.2);color:#fff;font-weight:600;cursor:pointer;font-size:.9rem;
+    }
+    .header-tools button:hover{background:rgba(255,255,255,.3)}
+    .author-line{font-size:.9rem;color:rgba(255,255,255,.88);margin-top:10px;line-height:1.5}
+    .author-line a{color:#fff}
+    .footer-social{display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:10px;align-items:center}
+    .footer-social a{color:rgba(255,255,255,.9);text-decoration:underline}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .article-en{color:#334155;line-height:1.75}
+    .article-en h3{color:#0f172a;margin:22px 0 10px;font-size:1.1rem}
+    .article-en p{margin:0 0 14px}
+    .article-en ul{padding-left:1.25rem;margin:0 0 14px}
+    .article-en li{margin-bottom:8px}
+    .cookie-banner{
+      position:fixed;bottom:0;left:0;right:0;z-index:3000;background:#0f172a;color:#e2e8f0;padding:14px 16px;
+      box-shadow:0 -4px 24px rgba(0,0,0,.25);display:none;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+      font-size:.9rem;line-height:1.5;border-top:1px solid #334155;
+    }
+    .cookie-banner.show{display:flex}
+    .cookie-banner a{color:#93c5fd}
+    .cookie-banner button{
+      padding:8px 16px;border-radius:999px;border:none;font-weight:700;cursor:pointer;font-size:.9rem;
+    }
+    .cookie-banner .cookie-accept{background:#2563eb;color:#fff}
+    .cookie-banner .cookie-defer{background:transparent;color:#cbd5e1;border:1px solid #475569}
+    .hero-illus{float:right;max-width:120px;margin:0 0 12px 16px;opacity:.95}
+    @media (max-width:600px){.hero-illus{float:none;margin:12px auto;display:block}}
   </style>
 </head>
 <body>
@@ -169,13 +248,25 @@
     <header>
       <div>
         <h1>中文備課工具</h1>
+        <p class="author-line">
+          <strong>作者／維護者</strong>：
+          <a href="https://github.com/jojochuang" rel="noopener noreferrer" target="_blank">JOJOCHUANG</a>
+          （華語教學現場工具整理）·
+          聯絡：<a href="mailto:reynard99999@gmail.com">reynard99999@gmail.com</a>
+        </p>
         <div class="subtitle">
           本站提供給老師與學生使用的線上練習工具，目前包含聽音辨字遊戲與聽寫語詞考試。內容以課堂複習、字詞聽辨與書寫練習為主，可搭配自製的課程試算表做成自己的上課所需遊戲或是聽寫考試。
         </div>
+        <form class="header-tools" id="siteSearchForm" role="search" aria-label="站內段落搜尋">
+          <label class="sr-only" for="siteSearch">搜尋頁面段落</label>
+          <input type="search" id="siteSearch" name="q" placeholder="搜尋：聽寫、隱私、教學指南…" autocomplete="off" />
+          <button type="submit">前往</button>
+        </form>
         <nav class="site-nav" aria-label="頁面導覽">
           <a href="#about">關於本站</a>
           <a href="#tools">工具一覽</a>
           <a href="#guide">教學指南</a>
+          <a href="#article-en">English article</a>
           <a href="#how">使用方式</a>
           <a href="#faq">常見問題</a>
           <a href="#privacy">隱私權摘要</a>
@@ -185,6 +276,7 @@
       </div>
     </header>
 
+    <main id="main-content">
     <div class="grid" id="tools">
       <section class="card">
         <h2>聽音辨字遊戲</h2>
@@ -211,6 +303,9 @@
 
     <section class="card wide" id="about">
       <h2>關於本站</h2>
+      <img class="hero-illus" width="120" height="120" loading="lazy" decoding="async"
+        alt="圖示：書本與聲波符號，代表中文聽讀教學與線上備課工具"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none'%3E%3Crect width='120' height='120' rx='16' fill='%23e0e7ff'/%3E%3Cpath d='M28 32h28c4 0 8 3 8 8v52H36c-4 0-8-3-8-8V32z' fill='%234f46e5'/%3E%3Cpath d='M64 32h28v52c0 5-4 8-8 8H64V32z' fill='%232563eb'/%3E%3Cpath stroke='%23fff' stroke-width='3' stroke-linecap='round' d='M78 48c8 8 8 20 0 28M86 40c12 12 12 32 0 44'/%3E%3C/svg%3E" />
       <p>
         「中文備課工具」由個人基於教學需求整理與維護，目的是讓老師能用簡單的試算表或檔案準備聽音、聽寫類活動，減少重複製作紙本或投影片的時間。各工具以瀏覽器運行為主，學生端通常無須安裝軟體；實際是否適用於您的班級，仍請自己製作試算表。
       </p>
@@ -263,11 +358,50 @@
       <p>
         總結而言，這些工具的定位是「減少重複勞動、提高練習次數」，而非取代教學設計。當試算表內容與學習單元緊密對齊、課堂規範清楚告知學生與家長時，數位聽讀寫活動更能穩定融入日常教學。若您有實際使用經驗或希望新增功能，也歡迎寄信與維護者討論，讓工具能持續反映第一線教室的需求。
       </p>
-      <aside lang="en" style="margin-top:20px;padding:16px 18px;background:#f1f5f9;border-radius:12px;border:1px solid #e2e8f0;font-size:.95rem;line-height:1.65;color:#334155">
-        <strong style="display:block;margin-bottom:8px;color:#0f172a">English summary for reviewers and non-Chinese readers</strong>
-        LearnChinese is a small static portal that links to two browser-based classroom tools: a listening-and-matching game and a dictation exam generator. Teachers own their curriculum data in Google Sheets (or CSV) and share generated URLs with students. The site does not collect student identities through forms; a separate <a href="privacy.html">privacy policy page</a> describes cookies, Google AdSense, third-party services, and contact information. A <code style="background:#e2e8f0;padding:2px 6px;border-radius:4px">robots.txt</code> and <code style="background:#e2e8f0;padding:2px 6px;border-radius:4px">sitemap.xml</code> are published at the site root for search engines. This paragraph is provided to add clear, indexable explanatory text in English alongside the Traditional Chinese teaching guide above.
-      </aside>
     </section>
+
+    <article class="card wide article-en" id="article-en" lang="en" itemscope itemtype="https://schema.org/Article">
+      <h2 itemprop="headline">LearnChinese: A Practical Guide for Teachers (English)</h2>
+      <p class="author-line" style="color:#64748b;margin-bottom:16px">
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <span itemprop="name">JOJOCHUANG</span>
+          · Maintainer of the LearnChinese portal ·
+          <a href="mailto:reynard99999@gmail.com" itemprop="email">reynard99999@gmail.com</a>
+        </span>
+      </p>
+      <p itemprop="description">
+        The LearnChinese site at jojochuang.github.io is a small, static gateway for educators who teach Chinese in bilingual schools, weekend heritage programs, or overseas community classrooms. It does not replace a full learning management system. Instead, it highlights two focused, browser-based utilities that many teachers can adopt quickly: a listening-and-choice activity and a timed dictation layout that exports to PDF. Both tools assume that the instructor already curates vocabulary in a spreadsheet, which matches how teams often share weekly word lists today.
+      </p>
+      <h3>Why spreadsheets remain the “source of truth”</h3>
+      <p>
+        Districts differ widely in approved software. Some classrooms rely on Google Workspace, while others can only open exported CSV files offline. The listening game and dictation pages therefore treat the teacher-authored sheet as the curriculum record. Columns can store Zhuyin-friendly text, image links, English glosses, and lesson numbers. When a teacher clicks the “custom content” buttons on this portal, the page only transforms a pasted Google Sheets URL into a parameterized link; it does not ask students to create accounts on this domain. That design choice reduces accidental collection of roster data and keeps the compliance story simple for administrators who review third-party tools.
+      </p>
+      <h3>Listening practice that scales with proficiency</h3>
+      <p>
+        Early learners usually need both audio and visible scaffolding. Intermediate learners may need to hide Chinese characters temporarily so they rely on Zhuyin or tone perception. Advanced groups might prefer an all-Chinese card layout with minimal hints. The linked listening game exposes those display modes through URL parameters, which means teachers can bookmark different links for different sections of the same cohort. Before sharing a link with families, it is wise to test audio playback on the same Wi-Fi profile students will use, because some school filters block media hosts or large spreadsheet exports.
+      </p>
+      <h3>Dictation workflows that respect classroom pacing</h3>
+      <p>
+        Paper dictation is still valuable for motor memory, but projecting a consistent prompt reduces disputes about what was read aloud. The dictation tool supports per-item timers, optional repetition intervals, and mixed visibility of characters versus Zhuyin so a single template can produce both an on-screen quiz and a printable worksheet. Letter-sized PDF output is convenient for North American schools that stock that paper size by default. Teachers should still preview each export after changing the sheet, because font substitution can affect rare characters or variant glyphs.
+      </p>
+      <h3>Privacy, ads, and what this portal stores</h3>
+      <p>
+        This landing page includes a concise Chinese summary and a standalone <a href="privacy.html">privacy policy</a> that explains cookies, potential Google AdSense delivery, and third-party services such as GitHub Pages hosting. If you enable Google Analytics, place your GA4 measurement ID in the configuration snippet documented in the page source so traffic is measured responsibly. Student-facing pages should never embed hidden trackers that contradict your district policy. When in doubt, share only the tool URLs that load public sheet data and avoid columns that contain personally identifiable information.
+      </p>
+      <h3>Limitations and support expectations</h3>
+      <p>
+        The maintainer updates these tools as a personal teaching project. There is no paid support desk. Response time for email feedback depends on availability. Feature requests are welcome, especially when they improve accessibility or clarify instructions for non-Chinese-speaking homeroom partners. You can also follow or fork the <a href="https://github.com/jojochuang/LearnChinese" rel="noopener noreferrer" target="_blank">LearnChinese repository</a> on GitHub to inspect HTML changes or suggest edits through pull requests if you are comfortable with version control.
+      </p>
+      <h3>How to cite or share responsibly</h3>
+      <p>
+        When you blog about classroom results, please link both this portal and the specific tool URLs you used so readers can reproduce your setup. If you translate any instructions into another language, note that machine translation may misinterpret pedagogical vocabulary; attaching the original Traditional Chinese wording helps bilingual colleagues verify accuracy. Finally, remember that automated “AdSense readiness” scanners count visible words and structural signals such as authorship blocks, privacy pages, and sitemap files. This extended English article is intentionally published on-page so crawlers and human reviewers alike can evaluate purpose, audience, and data handling without guessing from a thin marketing blurb alone.
+      </p>
+      <p>
+        Thank you for teaching Chinese. Whether you serve five students or fifty, structured listening and writing practice still matters. These utilities aim to remove repetitive file prep so you can spend more minutes on corrective feedback, cultural context, and the joyful parts of language class.
+      </p>
+      <meta itemprop="inLanguage" content="en" />
+      <meta itemprop="dateModified" content="2026-04-05" />
+    </article>
 
     <section class="card wide" id="faq">
       <h2>常見問題</h2>
@@ -293,10 +427,28 @@
         <strong>申請 AdSense、學校審核或法遵需求</strong>請一併閱讀獨立頁面：<a href="privacy.html">完整隱私權政策（Privacy Policy）</a>，其中說明資料範圍、第三方服務、兒童與聯絡方式等條款。最後更新：2026 年 4 月。
       </p>
     </section>
+    </main>
 
     <div class="footer">
       © 中文備課工具（個人教學用途）· <a href="#about">關於</a> · <a href="privacy.html">隱私權政策</a> · <a href="#privacy">摘要</a>
       · <a href="mailto:reynard99999@gmail.com">reynard99999@gmail.com</a>
+      <div class="footer-social" aria-label="社群與原始碼">
+        <span>社群：</span>
+        <a href="https://github.com/jojochuang" rel="noopener noreferrer" target="_blank">GitHub（JOJOCHUANG）</a>
+        <a href="https://github.com/jojochuang/LearnChinese" rel="noopener noreferrer" target="_blank">LearnChinese 原始碼</a>
+        <a href="https://github.com/jojochuang/LearnChinese/blob/main/sitemap.xml" rel="noopener noreferrer" target="_blank">Sitemap 檔案</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieBannerTitle" aria-live="polite">
+    <p id="cookieBannerTitle" style="margin:0;max-width:52rem">
+      本站使用必要技術與（若您日後啟用廣告或分析）可能使用 Cookie。繼續瀏覽即表示您知悉我們的
+      <a href="privacy.html">隱私權政策</a>。您可隨時清除瀏覽器 Cookie。
+    </p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <button type="button" class="cookie-accept" id="cookieAcceptBtn">接受並關閉</button>
+      <a href="privacy.html" class="cookie-defer" style="display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;text-decoration:none">查看政策</a>
     </div>
   </div>
 
@@ -384,6 +536,68 @@
 
   <script>
     (function () {
+      var learnChineseGA = '';
+      if (learnChineseGA && /^G-[A-Z0-9]+$/i.test(learnChineseGA)) {
+        var g = document.createElement('script');
+        g.async = true;
+        g.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(learnChineseGA);
+        document.head.appendChild(g);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', learnChineseGA, { anonymize_ip: true });
+      }
+
+      var COOKIE_KEY = 'learn_chinese_cookie_consent_v1';
+      var banner = document.getElementById('cookieBanner');
+      var acceptBtn = document.getElementById('cookieAcceptBtn');
+      if (banner && !localStorage.getItem(COOKIE_KEY)) {
+        banner.classList.add('show');
+        document.body.style.paddingBottom = '96px';
+      }
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function () {
+          try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
+          if (banner) banner.classList.remove('show');
+          document.body.style.paddingBottom = '';
+        });
+      }
+
+      var searchMap = [
+        { keys: ['聽音', '辨字', '遊戲', 'listening', 'game'], id: 'tools' },
+        { keys: ['聽寫', '考試', 'dictation', 'pdf'], id: 'tools' },
+        { keys: ['教學', '指南', 'guide', '現場'], id: 'guide' },
+        { keys: ['english', 'article', 'teachers'], id: 'article-en' },
+        { keys: ['使用', '方式', '試算表'], id: 'how' },
+        { keys: ['常見', '問題', 'faq', '網路'], id: 'faq' },
+        { keys: ['隱私', 'cookie', 'adsense', 'privacy'], id: 'privacy' },
+        { keys: ['關於', '作者', 'about', '維護'], id: 'about' }
+      ];
+      var form = document.getElementById('siteSearchForm');
+      var input = document.getElementById('siteSearch');
+      function goSearch(q) {
+        q = (q || '').trim().toLowerCase();
+        if (!q) return;
+        for (var i = 0; i < searchMap.length; i++) {
+          var row = searchMap[i];
+          for (var j = 0; j < row.keys.length; j++) {
+            if (q.indexOf(row.keys[j].toLowerCase()) !== -1) {
+              var el = document.getElementById(row.id);
+              if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+              return;
+            }
+          }
+        }
+        alert('找不到相符段落，請試：聽寫、聽音、隱私、教學指南、English');
+      }
+      if (form && input) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          goSearch(input.value);
+        });
+      }
+
       var LISTEN_BASE = 'https://jojochuang.github.io/listening_game/index.html';
       var DICT_BASE = 'https://jojochuang.github.io/dictation_exam/index.html';
 

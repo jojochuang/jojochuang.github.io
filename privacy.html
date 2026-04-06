@@ -6,8 +6,12 @@
   <title>隱私權政策｜中文備課工具</title>
   <meta name="description" content="中文備課工具（LearnChinese）之隱私權與 Cookie 政策：資料蒐集、第三方服務（含 Google AdSense）、使用者權利與聯絡方式。" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jojochuang.github.io/LearnChinese/privacy.html" />
+  <meta name="author" content="JOJOCHUANG（中文教學工具維護者）" />
+  <link rel="canonical" href="https://jojochuang.github.io/privacy.html" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>字</text></svg>">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"隱私權政策｜中文備課工具","url":"https://jojochuang.github.io/privacy.html","isPartOf":{"@type":"WebSite","name":"中文備課工具","url":"https://jojochuang.github.io/"},"inLanguage":"zh-TW","author":{"@type":"Person","name":"JOJOCHUANG","email":"reynard99999@gmail.com"}}
+  </script>
   <style>
     :root { --text:#0f172a; --muted:#475569; --link:#1d4ed8; --border:#e2e8f0; }
     * { box-sizing: border-box; }
@@ -32,18 +36,22 @@
     .back { margin-bottom: 20px; }
     .back a { font-weight: 600; }
     .note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 14px 16px; margin: 16px 0; font-size: .95rem; color: #1e3a5f; }
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:3000;background:#0f172a;color:#e2e8f0;padding:14px 16px;box-shadow:0 -4px 24px rgba(0,0,0,.25);display:none;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-size:.9rem;border-top:1px solid #334155}
+    .cookie-banner.show{display:flex}
+    .cookie-banner a{color:#93c5fd}
+    .cookie-banner button{padding:8px 16px;border-radius:999px;border:none;font-weight:700;cursor:pointer;background:#2563eb;color:#fff;font-size:.9rem}
   </style>
 </head>
 <body>
   <div class="wrap">
     <p class="back"><a href="index.html">← 返回首頁</a></p>
     <h1>隱私權政策（Privacy Policy）</h1>
-    <p class="meta">網站：jojochuang.github.io/LearnChinese · 最後更新：2026 年 4 月 2 日</p>
+    <p class="meta">網站：jojochuang.github.io · 最後更新：2026 年 4 月 5 日 · 維護者：JOJOCHUANG</p>
 
     <p>本政策說明「中文備課工具」網站（以下稱<strong>本站</strong>）如何處理瀏覽與使用相關資料。使用本站即表示您已閱讀並理解本政策。若您不同意本政策之內容，請停止使用本站。</p>
 
     <h2>一、資料控制者與適用範圍</h2>
-    <p>本站為個人基於教學用途建置之靜態網頁專案，由維護者負責內容更新。本政策適用於位於 <strong>https://jojochuang.github.io/LearnChinese/</strong> 之本站頁面。本站所連結之<strong>聽音辨字遊戲</strong>、<strong>聽寫語詞考試</strong>等外部工具頁面，以及您自行開啟之 Google 試算表、Google 文件等，由各該服務提供者另行規範，請一併閱讀其隱私權條款。</p>
+    <p>本站為個人基於教學用途建置之靜態網頁專案，由維護者負責內容更新。本政策適用於位於 <strong>https://jojochuang.github.io/</strong> 之本站頁面。本站所連結之<strong>聽音辨字遊戲</strong>、<strong>聽寫語詞考試</strong>等外部工具頁面，以及您自行開啟之 Google 試算表、Google 文件等，由各該服務提供者另行規範，請一併閱讀其隱私權條款。</p>
 
     <h2>二、本站蒐集哪些資料</h2>
     <p>本站首頁為說明與導覽用途，<strong>不以表單主動蒐集</strong>可識別您個人身分之資料（例如姓名、學號、成績）。若您透過電子郵件與維護者聯絡，信件內容與您的電子郵件位址將僅用於回覆您的詢問；請勿在郵件中夾帶學生或可識別他人身分之敏感資料。</p>
@@ -75,5 +83,21 @@
 
     <p style="margin-top:28px;font-size:.9rem;color:var(--muted);">本政策以繁體中文撰寫。若有與其他語言版本歧義，以繁體中文版為準。</p>
   </div>
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieBannerTitle">
+    <p id="cookieBannerTitle" style="margin:0;max-width:52rem">您正在閱讀隱私權政策。若尚未於首頁確認 Cookie 提示，可按下「接受並關閉列」或返回 <a href="index.html">首頁</a>。</p>
+    <button type="button" id="cookieAcceptBtn">接受並關閉列</button>
+  </div>
+  <script>
+    (function () {
+      var k = 'learn_chinese_cookie_consent_v1';
+      var b = document.getElementById('cookieBanner');
+      var btn = document.getElementById('cookieAcceptBtn');
+      if (b && !localStorage.getItem(k)) b.classList.add('show');
+      if (btn) btn.addEventListener('click', function () {
+        try { localStorage.setItem(k, '1'); } catch (e) {}
+        if (b) b.classList.remove('show');
+      });
+    })();
+  </script>
 </body>
 </html>
