@@ -1,8 +1,15 @@
 <!doctype html>
 <html lang="zh-TW">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7222823021545879"
-     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RYRFB7LS7N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RYRFB7LS7N');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>中文備課工具</title>
@@ -21,7 +28,6 @@
   <link rel="canonical" href="https://jojochuang.github.io/" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jojochuang.github.io/sitemap.xml" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>字</text></svg>">
-  <!-- Google Analytics 4：在下方 learnChineseGA 變數填入 G-XXXXXXXX 後即會載入 gtag（留空則不載入、不發請求） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -579,19 +585,6 @@
 
   <script>
     (function () {
-      var learnChineseGA = '';
-      if (learnChineseGA && /^G-[A-Z0-9]+$/i.test(learnChineseGA)) {
-        var g = document.createElement('script');
-        g.async = true;
-        g.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(learnChineseGA);
-        document.head.appendChild(g);
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', learnChineseGA, { anonymize_ip: true });
-      }
-
       var COOKIE_KEY = 'learn_chinese_cookie_consent_v1';
       var banner = document.getElementById('cookieBanner');
       var acceptBtn = document.getElementById('cookieAcceptBtn');
