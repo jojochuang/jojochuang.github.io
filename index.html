@@ -20,7 +20,6 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://jojochuang.github.io/sitemap.xml" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='24' font-size='24'>字</text></svg>">
   <!-- Google Analytics 4：在下方 learnChineseGA 變數填入 G-XXXXXXXX 後即會載入 gtag（留空則不載入、不發請求） -->
-  <!-- 若使用 Google AdSense：請將官方提供的程式碼貼在這一行下方（</head> 之前） -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -160,6 +159,18 @@
     .faq-a{margin:4px 0 0;color:#334155;line-height:1.65}
     .card a:not(.btn):not(.secondary){color:#1d4ed8}
     .card a:not(.btn):not(.secondary):hover{text-decoration:underline}
+    .donation-card{
+      border:1px solid rgba(180,83,9,.35);
+      background:linear-gradient(165deg,rgba(255,251,235,.98),rgba(254,243,199,.95));
+      box-shadow:0 14px 40px rgba(180,83,9,.18);
+    }
+    .donation-card h2{color:#92400e}
+    .donation-card p{color:#451a03}
+    .donation-card a.btn{
+      background:linear-gradient(135deg,#d97706,#b45309);
+      border-color:rgba(120,53,15,.35);
+      box-shadow:0 8px 22px rgba(180,83,9,.35);
+    }
     /* 與聽音辨字／聽寫工具頁相同的自製試算表對話框 */
     .custom-sheet-dialog{
       position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;
@@ -224,17 +235,6 @@
     .btnRow button.btn{
       cursor:pointer;font:inherit;font-size:inherit;text-decoration:none;
     }
-    .header-tools{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:100%}
-    .header-tools label{font-size:.85rem;color:rgba(255,255,255,.9)}
-    .header-tools input[type="search"]{
-      min-width:min(100%,220px);padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.35);
-      background:rgba(255,255,255,.12);color:#fff;font-size:.95rem;
-    }
-    .header-tools input[type="search"]::placeholder{color:rgba(255,255,255,.65)}
-    .header-tools button{
-      padding:8px 14px;border-radius:10px;border:none;background:rgba(255,255,255,.2);color:#fff;font-weight:600;cursor:pointer;font-size:.9rem;
-    }
-    .header-tools button:hover{background:rgba(255,255,255,.3)}
     .author-line{font-size:.9rem;color:rgba(255,255,255,.88);margin-top:10px;line-height:1.5}
     .author-line a{color:#fff}
     .footer-social{display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:10px;align-items:center}
@@ -275,11 +275,6 @@
         <div class="subtitle">
           本站提供給老師與學生使用的線上練習工具，目前包含聽音辨字遊戲與聽寫語詞考試。內容以課堂複習、字詞聽辨與書寫練習為主，可搭配自製的課程試算表做成自己的上課所需遊戲或是聽寫考試。
         </div>
-        <form class="header-tools" id="siteSearchForm" role="search" aria-label="站內段落搜尋">
-          <label class="sr-only" for="siteSearch">搜尋頁面段落</label>
-          <input type="search" id="siteSearch" name="q" placeholder="搜尋：聽寫、隱私、教學指南…" autocomplete="off" />
-          <button type="submit">前往</button>
-        </form>
         <nav class="site-nav" aria-label="頁面導覽">
           <a href="#about">關於本站</a>
           <a href="#tools">工具一覽</a>
@@ -293,12 +288,25 @@
           <a href="terms.html">使用條款</a>
           <a href="disclaimer.html">免責聲明</a>
           <a href="sitemap.html">網站地圖</a>
+          <a href="#support">支持開發</a>
           <a href="mailto:reynard99999@gmail.com">聯絡作者（信箱）</a>
         </nav>
       </div>
     </header>
 
     <main id="main-content">
+    <section class="card wide donation-card" id="support" aria-labelledby="support-heading">
+      <h2 id="support-heading">支持開發者</h2>
+      <p>
+        如果這個聽音辨字遊戲和聽寫考試幫助到你的教學，<br />
+        歡迎請我喝一杯咖啡 ☕<br />
+        你的支持可以讓我持續開發更多免費教材與功能。
+      </p>
+      <div class="btnRow">
+        <a class="btn" href="https://buymeacoffee.com/reynard999l" target="_blank" rel="noopener noreferrer">Buy Me a Coffee（捐款）</a>
+      </div>
+    </section>
+
     <div class="grid" id="tools">
       <section class="card">
         <h2>聽音辨字遊戲</h2>
@@ -338,9 +346,8 @@
         本站首頁說明各工具用途與操作要點；實際作答與試卷產生則在對應的工具頁面完成。若您發現錯字、連結失效或希望建議改進項目，歡迎寄信至作者信箱 <a href="mailto:reynard99999@gmail.com">reynard99999@gmail.com</a>。
       </p>
       <h3>參考與法遵（外部權威來源）</h3>
-      <p>以下連結協助讀者查核廣告、搜尋與託管相關官方說明（將於新分頁開啟）：</p>
+      <p>以下連結協助讀者查核搜尋與託管相關官方說明（將於新分頁開啟）：</p>
       <ul>
-        <li><a href="https://support.google.com/adsense/answer/48182" rel="noopener noreferrer" target="_blank">Google AdSense 計劃政策（官方）</a></li>
         <li><a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" rel="noopener noreferrer" target="_blank">Google 搜尋中心：SEO 入門指南</a></li>
         <li><a href="https://docs.github.com/pages" rel="noopener noreferrer" target="_blank">GitHub Pages 說明文件</a></li>
       </ul>
@@ -381,11 +388,11 @@
       </p>
       <h3>與行政、資安政策的對話要點</h3>
       <p>
-        資訊組或行政單位常關心：學生資料是否外流、是否符合 FERPA／各地個資法、以及廣告元件是否合規。本站首頁提供隱私權摘要，並另設獨立之 <a href="privacy.html">隱私權政策</a> 頁面，方便學校審核。實務上，老師仍應避免在試算表公開欄位填寫可識別個資的內容，並依校方規範決定是否啟用廣告或分析元件。若您需要書面說明，可將政策頁面網址一併提供給承辦人參考。
+        資訊組或行政單位常關心：學生資料是否外流、是否符合 FERPA／各地個資法、以及第三方服務是否合規。本站首頁提供隱私權摘要，並另設獨立之 <a href="privacy.html">隱私權政策</a> 頁面，方便學校審核。實務上，老師仍應避免在試算表公開欄位填寫可識別個資的內容，並依校方規範決定是否啟用額外分析或追蹤元件。若您需要書面說明，可將政策頁面網址一併提供給承辦人參考。
       </p>
       <h3>家長溝通與課後延伸</h3>
       <p>
-        家長常詢問：孩子在家是否可以練習、會不會看到廣告、以及是否需要註冊帳號。老師可說明：專屬連結多半只載入老師試算表中的公開練習內容，學生無須在本站建立帳號；若頁面顯示廣告，可依學校政策請學生使用學校裝置或家長陪同瀏覽。課後延伸方面，可鼓勵學生聆聽同一語詞的課堂錄音或教科書附帶音檔，再對照試算表中的詞彙表自我檢核。對於學習速度較慢的學生，亦可將聽寫 PDF 列印為週複習單，降低螢幕使用時間。
+        家長常詢問：孩子在家是否可以練習、以及是否需要註冊帳號。老師可說明：專屬連結多半只載入老師試算表中的公開練習內容，學生無須在本站建立帳號。課後延伸方面，可鼓勵學生聆聽同一語詞的課堂錄音或教科書附帶音檔，再對照試算表中的詞彙表自我檢核。對於學習速度較慢的學生，亦可將聽寫 PDF 列印為週複習單，降低螢幕使用時間。
       </p>
       <p>
         總結而言，這些工具的定位是「減少重複勞動、提高練習次數」，而非取代教學設計。當試算表內容與學習單元緊密對齊、課堂規範清楚告知學生與家長時，數位聽讀寫活動更能穩定融入日常教學。若您有實際使用經驗或希望新增功能，也歡迎寄信與維護者討論，讓工具能持續反映第一線教室的需求。
@@ -416,9 +423,9 @@
       <p>
         Paper dictation is still valuable for motor memory, but projecting a consistent prompt reduces disputes about what was read aloud. The dictation tool supports per-item timers, optional repetition intervals, and mixed visibility of characters versus Zhuyin so a single template can produce both an on-screen quiz and a printable worksheet. Letter-sized PDF output is convenient for North American schools that stock that paper size by default. Teachers should still preview each export after changing the sheet, because font substitution can affect rare characters or variant glyphs.
       </p>
-      <h3>Privacy, ads, and what this portal stores</h3>
+      <h3>Privacy and what this portal stores</h3>
       <p>
-        This landing page includes a concise Chinese summary and a standalone <a href="privacy.html">privacy policy</a> that explains cookies, potential Google AdSense delivery, and third-party services such as GitHub Pages hosting. If you enable Google Analytics, place your GA4 measurement ID in the configuration snippet documented in the page source so traffic is measured responsibly. Student-facing pages should never embed hidden trackers that contradict your district policy. When in doubt, share only the tool URLs that load public sheet data and avoid columns that contain personally identifiable information.
+        This landing page includes a concise Chinese summary and a standalone <a href="privacy.html">privacy policy</a> that explains cookies and third-party services such as GitHub Pages hosting and Google Sheets when you paste spreadsheet links. If you enable Google Analytics, place your GA4 measurement ID in the configuration snippet documented in the page source so traffic is measured responsibly. Student-facing pages should never embed hidden trackers that contradict your district policy. When in doubt, share only the tool URLs that load public sheet data and avoid columns that contain personally identifiable information.
       </p>
       <h3>Limitations and support expectations</h3>
       <p>
@@ -426,7 +433,7 @@
       </p>
       <h3>How to cite or share responsibly</h3>
       <p>
-        When you blog about classroom results, please link both this portal and the specific tool URLs you used so readers can reproduce your setup. If you translate any instructions into another language, note that machine translation may misinterpret pedagogical vocabulary; attaching the original Traditional Chinese wording helps bilingual colleagues verify accuracy. Finally, remember that automated “AdSense readiness” scanners count visible words and structural signals such as authorship blocks, privacy pages, and sitemap files. This extended English article is intentionally published on-page so crawlers and human reviewers alike can evaluate purpose, audience, and data handling without guessing from a thin marketing blurb alone.
+        When you blog about classroom results, please link both this portal and the specific tool URLs you used so readers can reproduce your setup. If you translate any instructions into another language, note that machine translation may misinterpret pedagogical vocabulary; attaching the original Traditional Chinese wording helps bilingual colleagues verify accuracy. This extended English article is intentionally published on-page so readers can evaluate purpose, audience, and data handling without guessing from a thin marketing blurb alone.
       </p>
       <p>
         Thank you for teaching Chinese. Whether you serve five students or fifty, structured listening and writing practice still matters. These utilities aim to remove repetitive file prep so you can spend more minutes on corrective feedback, cultural context, and the joyful parts of language class.
@@ -452,13 +459,13 @@
     <section class="card wide" id="privacy">
       <h2>隱私權與 Cookie（摘要）</h2>
       <p>
-        當您瀏覽本站與連結出去的工具頁面時，瀏覽器可能會儲存必要的技術性資料（例如偏好設定）。若本站透過 <strong>Google AdSense</strong> 顯示廣告，Google 與合作夥伴可能使用 Cookie 或類似技術以提供與衡量廣告；部分地區使用者會看到同意聲明（CMP），可於該介面調整選項。
+        當您瀏覽本站與連結出去的工具頁面時，瀏覽器可能會儲存必要的技術性資料（例如偏好設定）。若工具載入或嵌入第三方服務（例如 Google 試算表），該服務可能依其政策使用 Cookie 或類似技術，請一併參閱對方網站之說明。
       </p>
       <p>
-        關於 Google 如何運用資料，請參閱 <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google 隱私權政策</a>；廣告個人化設定可參閱 <a href="https://adssettings.google.com/" rel="noopener noreferrer" target="_blank">Google 廣告設定</a>。本站首頁不以表單蒐集可識別個資；若您寄信聯絡維護者，請勿在信中夾帶學生個資。
+        關於 Google 如何運用資料，請參閱 <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google 隱私權政策</a>。本站首頁不以表單蒐集可識別個資；若您寄信聯絡維護者，請勿在信中夾帶學生個資。
       </p>
       <p>
-        <strong>申請 AdSense、學校審核或法遵需求</strong>請一併閱讀獨立頁面：<a href="privacy.html">完整隱私權政策（Privacy Policy）</a>，其中說明資料範圍、第三方服務、兒童與聯絡方式等條款。最後更新：2026 年 4 月。
+        <strong>學校審核或法遵需求</strong>請一併閱讀獨立頁面：<a href="privacy.html">完整隱私權政策（Privacy Policy）</a>，其中說明資料範圍、第三方服務、兒童與聯絡方式等條款。最後更新：2026 年 4 月。
       </p>
     </section>
     </main>
@@ -477,7 +484,7 @@
 
   <div id="cookieBanner" class="cookie-banner" role="dialog" aria-labelledby="cookieBannerTitle" aria-live="polite">
     <p id="cookieBannerTitle" style="margin:0;max-width:52rem">
-      本站使用必要技術與（若您日後啟用廣告或分析）可能使用 Cookie。繼續瀏覽即表示您知悉我們的
+      本站可能使用必要技術與 Cookie（例如偏好設定）。繼續瀏覽即表示您知悉我們的
       <a href="privacy.html">隱私權政策</a> 與 <a href="terms.html">使用條款</a>。您可隨時清除瀏覽器 Cookie。
     </p>
     <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -595,40 +602,6 @@
           try { localStorage.setItem(COOKIE_KEY, '1'); } catch (e) {}
           if (banner) banner.classList.remove('show');
           document.body.style.paddingBottom = '';
-        });
-      }
-
-      var searchMap = [
-        { keys: ['聽音', '辨字', '遊戲', 'listening', 'game'], id: 'tools' },
-        { keys: ['聽寫', '考試', 'dictation', 'pdf'], id: 'tools' },
-        { keys: ['教學', '指南', 'guide', '現場'], id: 'guide' },
-        { keys: ['english', 'article', 'teachers'], id: 'article-en' },
-        { keys: ['使用', '方式', '試算表'], id: 'how' },
-        { keys: ['常見', '問題', 'faq', '網路'], id: 'faq' },
-        { keys: ['隱私', 'cookie', 'adsense', 'privacy'], id: 'privacy' },
-        { keys: ['關於', '作者', 'about', '維護'], id: 'about' }
-      ];
-      var form = document.getElementById('siteSearchForm');
-      var input = document.getElementById('siteSearch');
-      function goSearch(q) {
-        q = (q || '').trim().toLowerCase();
-        if (!q) return;
-        for (var i = 0; i < searchMap.length; i++) {
-          var row = searchMap[i];
-          for (var j = 0; j < row.keys.length; j++) {
-            if (q.indexOf(row.keys[j].toLowerCase()) !== -1) {
-              var el = document.getElementById(row.id);
-              if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-              return;
-            }
-          }
-        }
-        alert('找不到相符段落，請試：聽寫、聽音、隱私、教學指南、English');
-      }
-      if (form && input) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          goSearch(input.value);
         });
       }
 
